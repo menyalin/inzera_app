@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 
 class Api {
-  static const _api_base_url = '10.0.2.2:8000';
+  static const _api_base_url = '91.107.21.29:8080';
   static const _api = '/api/';
 
   static String imageCDNPath([String path = '']) =>

@@ -11,8 +11,8 @@ class InzeraApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // This app is designed only to work vertically, so we limit
     // orientations to portrait up and down.
-    SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    // SystemChrome.setPreferredOrientations(
+    //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
     return CupertinoApp(
       theme: const CupertinoThemeData(brightness: Brightness.light),
