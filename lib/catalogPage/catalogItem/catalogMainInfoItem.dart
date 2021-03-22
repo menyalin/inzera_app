@@ -78,7 +78,7 @@ class _CatalogSeries extends StatelessWidget {
       {Series sku, String owner, BuildContext context, String parentName}) {
     _buttonClick() {
       Navigator.of(context).pushReplacement(
-        CupertinoPageRoute(builder: (BuildContext context) {
+        MaterialPageRoute(builder: (BuildContext context) {
           return CatalogItemPage(sku.skuId, parentName);
         }),
       );
@@ -159,6 +159,7 @@ class _PriceInfo extends StatelessWidget {
                       style: _oldPriceStyle()),
                 )
               : Container(),
+          Spacer(),
           Container(
             child: OutlinedButton(
               onPressed: () {

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class CatalogImageScreen extends StatelessWidget {
   final String imageUrl, name;

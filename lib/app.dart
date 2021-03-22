@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:inzera_app2/catalogPage/catalogList/catalogListPage.dart';
 
-import 'catalogPage/catalogTab.dart';
+import 'appTheme.dart';
 import 'mainPage/mainTab.dart';
 import 'shopPage/shopTab.dart';
 
@@ -13,10 +14,15 @@ class InzeraApp extends StatelessWidget {
     // orientations to portrait up and down.
     // SystemChrome.setPreferredOrientations(
     //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-
-    return CupertinoApp(
-      theme: const CupertinoThemeData(brightness: Brightness.light),
-      home: InzeraHomePage(),
+    return MaterialApp(
+      title: 'Inzera',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      // darkTheme: ThemeData.dark(),
+      home: Scaffold(
+        body: InzeraHomePage(),
+      ),
     );
   }
 }
@@ -26,17 +32,19 @@ class InzeraHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
+        activeColor: Theme.of(context).iconTheme.color,
+        iconSize: Theme.of(context).iconTheme.size,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.home),
+            icon: Icon(Icons.home),
             label: 'Главная',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.search),
+            icon: Icon(Icons.search),
             label: 'Каталог',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.shopping_cart),
+            icon: Icon(Icons.store),
             label: 'Магазины',
           ),
         ],
@@ -52,8 +60,9 @@ class InzeraHomePage extends StatelessWidget {
             });
             break;
           case 1:
-            returnValue =
-                CupertinoTabView(builder: (context) => CatalogPageTab());
+            returnValue = CupertinoTabView(
+              builder: (context) => CatalogListPage(),
+            );
             break;
           case 2:
             returnValue = CupertinoTabView(builder: (context) {

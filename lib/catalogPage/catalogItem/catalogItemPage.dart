@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:inzera_app2/catalogPage/catalogItem/skuInfo.dart';
 import 'package:inzera_app2/models/catalogModel.dart';
 
@@ -34,7 +35,8 @@ class _CatalogItemPageState extends State<CatalogItemPage> {
 
         return CupertinoPageScaffold(
           navigationBar: CupertinoNavigationBar(
-            middle: Text(widget.parentName ?? '_'),
+            // backgroundColor: Theme.of(context).backgroundColor,
+            middle: Text(widget.parentName ?? ''),
           ),
           child: children,
         );

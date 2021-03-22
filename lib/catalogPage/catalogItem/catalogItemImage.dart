@@ -20,23 +20,20 @@ class CatalogItemImage extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(10),
             child: Center(
-              child: Hero(
-                tag: imageUrl,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(
-                      CupertinoPageRoute(builder: (BuildContext context) {
-                        return CatalogImageScreen(
-                          imageUrl: imageUrl,
-                          name: name,
-                        );
-                      }),
-                    );
-                  },
-                  child: Image.network(
-                    imageUrl,
-                    fit: BoxFit.fill,
-                  ),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (BuildContext context) {
+                      return CatalogImageScreen(
+                        imageUrl: imageUrl,
+                        name: name,
+                      );
+                    }),
+                  );
+                },
+                child: Image.network(
+                  imageUrl,
+                  fit: BoxFit.fill,
                 ),
               ),
             ),

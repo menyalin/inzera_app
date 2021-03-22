@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../styles.dart';
 
 class SearchField extends StatefulWidget {
   final Function setSearchText;
@@ -45,24 +42,23 @@ class _SearchFieldState extends State<SearchField> {
         ),
         child: Row(
           children: [
-            const Icon(
-              CupertinoIcons.search,
-              color: Styles.searchIconColor,
-            ),
             Expanded(
-              child: CupertinoTextField(
-                placeholder: 'Введите текст для поиска товара',
+              child: TextField(
+                autocorrect: false,
                 controller: _controller,
-                // focusNode: _focusNode,
-                style: Styles.searchText,
-                cursorColor: Styles.searchCursorColor,
-              ),
-            ),
-            GestureDetector(
-              onTap: _controller.clear,
-              child: Icon(
-                CupertinoIcons.clear_thick_circled,
-                color: Styles.searchIconColor,
+                style: TextStyle(fontSize: 18.0, color: Colors.black),
+                decoration: InputDecoration(
+                    suffixIcon: GestureDetector(
+                      child: Icon(
+                        Icons.clear,
+                      ),
+                      onTap: () {
+                        _controller.clear();
+                      },
+                    ),
+                    prefixIcon: Icon(Icons.search),
+                    hintText: "Для поиска товара введите не менее 4-х символов",
+                    hintStyle: TextStyle(color: Colors.grey, fontSize: 14.0)),
               ),
             ),
           ],

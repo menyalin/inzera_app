@@ -39,8 +39,8 @@ class _GroupItem extends StatelessWidget {
         child: Text(
           group.name,
           style: TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.w500,
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
           ),
         ),
       );
@@ -53,8 +53,8 @@ class _GroupItem extends StatelessWidget {
       child: InkWell(
         onTap: () {
           Navigator.of(context)
-              .push(CupertinoPageRoute(builder: (BuildContext context) {
-            return CatalogListPage(group.id, group.name);
+              .push(MaterialPageRoute(builder: (BuildContext context) {
+            return Scaffold(body: CatalogListPage(group.id, group.name));
           }));
         },
         child: Container(
@@ -94,8 +94,8 @@ class _SkuItem extends StatelessWidget {
       child: Text(
         sku.name,
         style: TextStyle(
-          fontWeight: FontWeight.w500,
-          fontSize: 16,
+          fontWeight: FontWeight.w400,
+          fontSize: 17,
         ),
       ),
     );
@@ -186,7 +186,7 @@ class _SkuItem extends StatelessWidget {
       child: InkWell(
         onTap: () {
           Navigator.of(context).push(
-            CupertinoPageRoute(
+            MaterialPageRoute(
               builder: (BuildContext context) {
                 return CatalogItemPage(sku.id, parentName);
               },
